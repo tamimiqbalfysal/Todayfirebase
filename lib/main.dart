@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Align(
-          alignment: Alignment.bottomLeft,
+          alignment: Alignment.bottomCenter, // Align to bottom center
           child: FloatingActionButton(
             onPressed: _showNotification,
             backgroundColor: Colors.yellowAccent,
