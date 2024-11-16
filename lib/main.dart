@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white, // Set AppBar background color to white
         leading: IconButton(
-          icon: Icon(Icons.search, color: Colors.blue),
+          icon: Icon(Icons.search, color: Colors.yellowAccent),
           onPressed: _triggerSearch,
         ),
         actions: [
