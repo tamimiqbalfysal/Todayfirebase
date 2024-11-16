@@ -35,11 +35,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _triggerSearch() {
+    // Implement your search logic here
+    print('Search triggered');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        leading: IconButton(
+          icon: Icon(Icons.search, color: Colors.blue),
+          onPressed: _triggerSearch,
+        ),
         actions: [
           Builder(
             builder: (context) => IconButton(
