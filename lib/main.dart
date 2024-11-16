@@ -8,13 +8,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My Flutter App', // Updated title
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      debugShowCheckedModeBanner: false, // Add this line
+      home: const MyHomePage(title: 'Home Page'), // Updated title
+      debugShowCheckedModeBanner: false,
     );
   }
 }
