@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      backgroundColor: Colors.white, // Set Scaffold background color to white
       endDrawer: Drawer(
         backgroundColor: Colors.black,
         child: ListView(
