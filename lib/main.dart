@@ -40,6 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
     print('Search triggered');
   }
 
+  void _showNotification() {
+    // Implement your notification logic here
+    print('Notification triggered');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,13 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       backgroundColor: Colors.white, // Set Scaffold background color to white
       endDrawer: Drawer(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black, // Set Drawer background color to intense black
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.black, // Set DrawerHeader background color to intense black
               ),
               child: Text(
                 'Drawer Header',
@@ -107,6 +112,18 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: FloatingActionButton(
+            onPressed: _showNotification,
+            backgroundColor: Colors.yellowAccent,
+            child: const Icon(Icons.notifications),
+          ),
+        ),
       ),
     );
   }
