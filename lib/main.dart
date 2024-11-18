@@ -66,6 +66,33 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.white, // Set Scaffold background color to white
       endDrawer: Drawer(
         backgroundColor: Colors.white, // Set Drawer background color to white
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.white, // Set DrawerHeader background color to white
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.today, color: Colors.black),
+              title: Text('Today', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TodayPage()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: Column(
@@ -95,6 +122,20 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.notifications),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TodayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Today'),
+      ),
+      body: Center(
+        child: Text('Welcome to the Today Page!'),
       ),
     );
   }
