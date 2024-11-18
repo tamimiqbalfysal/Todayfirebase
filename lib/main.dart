@@ -65,33 +65,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       backgroundColor: Colors.white, // Set Scaffold background color to white
       endDrawer: Drawer(
-        backgroundColor: Colors.black, // Set Drawer background color to intense black
+        backgroundColor: Colors.white, // Set Drawer background color to white
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.black, // Set DrawerHeader background color to intense black
+                color: Colors.white, // Set DrawerHeader background color to white
               ),
               child: Text(
                 'Drawer Header',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 24,
                 ),
               ),
             ),
             ListTile(
-              leading: Icon(Icons.message, color: Colors.white),
-              title: Text('Messages', style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.message, color: Colors.black),
+              title: Text('Messages', style: TextStyle(color: Colors.black)),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle, color: Colors.white),
-              title: Text('Profile', style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.account_circle, color: Colors.black),
+              title: Text('Profile', style: TextStyle(color: Colors.black)),
             ),
             ListTile(
-              leading: Icon(Icons.settings, color: Colors.white),
-              title: Text('Settings', style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.settings, color: Colors.black),
+              title: Text('Settings', style: TextStyle(color: Colors.black)),
             ),
           ],
         ),
