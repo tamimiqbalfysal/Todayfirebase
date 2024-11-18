@@ -70,22 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             ListTile(
-              leading: Icon(Icons.add, color: Colors.black),
-              title: Text('Add', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                // Implement your add logic here
-                print('Add option selected');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.remove, color: Colors.black),
-              title: Text('Remove', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                // Implement your remove logic here
-                print('Remove option selected');
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.today, color: Colors.black),
               title: Text('Today', style: TextStyle(color: Colors.black)),
               onTap: () {
@@ -103,6 +87,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   MaterialPageRoute(builder: (context) => ThankuGPage()),
                 );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.remove, color: Colors.black),
+              title: Text('Remove', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                // Implement your remove logic here
+                print('Remove option selected');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add, color: Colors.black),
+              title: Text('Add', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                // Implement your add logic here
+                print('Add option selected');
               },
             ),
           ],
