@@ -85,6 +85,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 print('Remove option selected');
               },
             ),
+            ListTile(
+              leading: Icon(Icons.today, color: Colors.black),
+              title: Text('Today', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TodayPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.thumb_up, color: Colors.black),
+              title: Text('Thanku G', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ThankuGPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -116,6 +136,34 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.notifications),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TodayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Today'),
+      ),
+      body: Center(
+        child: Text('Welcome to the Today Page!'),
+      ),
+    );
+  }
+}
+
+class ThankuGPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Thanku G'),
+      ),
+      body: Center(
+        child: Text('Welcome to the Thanku G Page!'),
       ),
     );
   }
