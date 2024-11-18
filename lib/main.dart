@@ -69,26 +69,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.white, // Set DrawerHeader background color to white
-              ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                ),
-              ),
+            ListTile(
+              leading: Icon(Icons.add, color: Colors.black),
+              title: Text('Add', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                // Implement your add logic here
+                print('Add option selected');
+              },
             ),
             ListTile(
-              leading: Icon(Icons.today, color: Colors.black),
-              title: Text('Today', style: TextStyle(color: Colors.black)),
+              leading: Icon(Icons.remove, color: Colors.black),
+              title: Text('Remove', style: TextStyle(color: Colors.black)),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TodayPage()),
-                );
+                // Implement your remove logic here
+                print('Remove option selected');
               },
             ),
           ],
@@ -122,20 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.notifications),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class TodayPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Today'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Today Page!'),
       ),
     );
   }
