@@ -11,6 +11,8 @@ class _ThankuGPageState extends State<ThankuGPage> {
   final List<String> _validGiftCodes = ['123', '456', '789']; // Pre-stored gift codes
   final Map<String, int> _giftCodeCounts = {'123': 0, '456': 0, '789': 0}; // Count of each gift code
   String _resultMessage = ''; // To store the result message
+  int _totalValidGiftCodes = 0; // Total number of valid gift codes entered
+  final int _totalGiftCodesDisbursed = 3; // Total gift codes disbursed
 
   @override
   void dispose() {
@@ -24,9 +26,9 @@ class _ThankuGPageState extends State<ThankuGPage> {
       if (_validGiftCodes.contains(enteredCode)) {
         setState(() {
           _giftCodeCounts[enteredCode] = _giftCodeCounts[enteredCode]! + 1;
-          int totalDisbursed = _giftCodeCounts.values.reduce((a, b) => a + b);
-          double percentage = (_giftCodeCounts[enteredCode]! / totalDisbursed) * 100;
-          _resultMessage = 'Gift Code is valid: $enteredCode\nCount: ${_giftCodeCounts[enteredCode]}\nPercentage: ${percentage.toStringAsFixed(2)}%';
+          _totalValidGiftCodes++;
+          double percentage = (_totalValidGiftCodes / _totalGiftCodesDisbursed) * 100;
+          _resultMessage = 'Your Gift Code is valid: $enteredCode\nTotal Valid Gift Codes: $_totalValidGiftCodes\nTotal Gift Codes Disbursed: $_totalGiftCodesDisbursed\nPercentage: ${percentage.toStringAsFixed(2)}%';
         });
       } else {
         setState(() {
