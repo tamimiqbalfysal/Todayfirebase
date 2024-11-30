@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'today.dart';
+import 'thanku_g.dart';
 
 void main() {
   runApp(MyApp());
@@ -136,34 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.notifications),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class TodayPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Today'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Today Page!'),
-      ),
-    );
-  }
-}
-
-class ThankuGPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Thanku G'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Thanku G Page!'),
       ),
     );
   }
