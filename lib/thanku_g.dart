@@ -24,12 +24,18 @@ class _ThankuGPageState extends State<ThankuGPage> {
     if (_formKey.currentState!.validate()) {
       String enteredCode = _giftCodeController.text;
       if (_validGiftCodes.contains(enteredCode)) {
-        setState(() {
-          _giftCodeCounts[enteredCode] = _giftCodeCounts[enteredCode]! + 1;
-          _totalValidGiftCodes++;
-          double percentage = (_totalValidGiftCodes / _totalGiftCodesDisbursed) * 100;
-          _resultMessage = 'Your Gift Code is valid: $enteredCode\nTotal Valid Gift Codes: $_totalValidGiftCodes\nTotal Gift Codes Disbursed: $_totalGiftCodesDisbursed\nPercentage: ${percentage.toStringAsFixed(2)}%';
-        });
+        if (_giftCodeCounts[enteredCode]! == 0) {
+          setState(() {
+            _giftCodeCounts[enteredCode] = _giftCodeCounts[enteredCode]! + 1;
+            _totalValidGiftCodes++;
+            double percentage = (_totalValidGiftCodes / _totalGiftCodesDisbursed) * 100;
+            _resultMessage = 'Your Gift Code is valid: $enteredCode\nTotal Valid Gift Codes: $_totalValidGiftCodes\nTotal Gift Codes Disbursed: $_totalGiftCodesDisbursed\nPercentage: ${percentage.toStringAsFixed(2)}%';
+          });
+        } else {
+          setState(() {
+            _resultMessage = 'Gift Code has already been used: $enteredCode';
+          });
+        }
       } else {
         setState(() {
           _resultMessage = 'Invalid Gift Code: $enteredCode';
