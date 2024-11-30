@@ -8,6 +8,9 @@ class ThankuGPage extends StatefulWidget {
 class _ThankuGPageState extends State<ThankuGPage> {
   final _formKey = GlobalKey<FormState>();
   final _giftCodeController = TextEditingController();
+  final List<String> _validGiftCodes = ['123', '456', '789']; // Pre-stored gift codes
+  final Map<String, int> _giftCodeCounts = {'123': 0, '456': 0, '789': 0}; // Count of each gift code
+  String _resultMessage = ''; // To store the result message
 
   @override
   void dispose() {
@@ -17,11 +20,19 @@ class _ThankuGPageState extends State<ThankuGPage> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // Process the gift code
-      print('Gift Code: ${_giftCodeController.text}');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Gift Code submitted: ${_giftCodeController.text}')),
-      );
+      String enteredCode = _giftCodeController.text;
+      if (_validGiftCodes.contains(enteredCode)) {
+        setState(() {
+          _giftCodeCounts[enteredCode] = _giftCodeCounts[enteredCode]! + 1;
+          int totalDisbursed = _giftCodeCounts.values.reduce((a, b) => a + b);
+          double percentage = (_giftCodeCounts[enteredCode]! / totalDisbursed) * 100;
+          _resultMessage = 'Gift Code is valid: $enteredCode\nCount: ${_giftCodeCounts[enteredCode]}\nPercentage: ${percentage.toStringAsFixed(2)}%';
+        });
+      } else {
+        setState(() {
+          _resultMessage = 'Invalid Gift Code: $enteredCode';
+        });
+      }
     }
   }
 
@@ -56,6 +67,11 @@ class _ThankuGPageState extends State<ThankuGPage> {
               ElevatedButton(
                 onPressed: _submitForm,
                 child: Text('Submit'),
+              ),
+              SizedBox(height: 20),
+              Text(
+                _resultMessage,
+                style: TextStyle(fontSize: 16, color: Colors.black),
               ),
             ],
           ),
