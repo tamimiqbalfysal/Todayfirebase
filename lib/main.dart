@@ -72,7 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             ListTile(
-              leading: Icon(Icons.today, color: Colors.black),
               title: Text('Today', style: TextStyle(color: Colors.black)),
               onTap: () {
                 Navigator.push(
@@ -82,7 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.thumb_up, color: Colors.black),
               title: Text('Thanku G', style: TextStyle(color: Colors.black)),
               onTap: () {
                 Navigator.push(
