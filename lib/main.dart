@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'today.dart';
 import 'thanku_g.dart';
+import 'add_page.dart'; // Import the new page
 
 void main() {
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  }
   runApp(MyApp());
 }
 
@@ -101,8 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.add, color: Colors.black),
               title: Text('Add', style: TextStyle(color: Colors.black)),
               onTap: () {
-                // Implement your add logic here
-                print('Add option selected');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddPage()), // Navigate to the new page
+                );
               },
             ),
           ],
