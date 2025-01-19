@@ -35,6 +35,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  List<Widget> _dynamicDrawerItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _dynamicDrawerItems = [
+      ListTile(
+        title: Text('Thanku G', style: TextStyle(color: Colors.black)),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ThankuGPage()),
+          );
+        },
+      ),
+    ];
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -50,6 +67,49 @@ class _MyHomePageState extends State<MyHomePage> {
   void _showNotification() {
     // Implement your notification logic here
     print('Notification triggered');
+  }
+
+  void _removeItem() {
+    setState(() {
+      if (_dynamicDrawerItems.isNotEmpty) {
+        // Remove the last item from the dynamic drawer items list
+        _dynamicDrawerItems.removeLast();
+      }
+    });
+  }
+
+  List<Widget> get _drawerItems {
+    return [
+      // Static "Today" item
+      ListTile(
+        title: Text('Today', style: TextStyle(color: Colors.black)),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodayPage()),
+          );
+        },
+      ),
+      // Dynamic items (Thanku G, etc.)
+      ..._dynamicDrawerItems,
+      // Static "Add" item
+      ListTile(
+        leading: Icon(Icons.add, color: Colors.black),
+        title: Text('Add', style: TextStyle(color: Colors.black)),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddPage()), // Navigate to the new page
+          );
+        },
+      ),
+      // Static "Remove" item
+      ListTile(
+        leading: Icon(Icons.remove, color: Colors.black),
+        title: Text('Remove', style: TextStyle(color: Colors.black)),
+        onTap: _removeItem,
+      ),
+    ];
   }
 
   @override
@@ -76,42 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            ListTile(
-              title: Text('Today', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TodayPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Thanku G', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ThankuGPage()),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.remove, color: Colors.black),
-              title: Text('Remove', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                // Implement your remove logic here
-                print('Remove option selected');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.add, color: Colors.black),
-              title: Text('Add', style: TextStyle(color: Colors.black)),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AddPage()), // Navigate to the new page
-                );
-              },
-            ),
+            ..._drawerItems,
           ],
         ),
       ),
