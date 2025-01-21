@@ -61,13 +61,23 @@ class SignUpScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8), // Add rounded corners
                   ),
                 ),
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: Colors.black, // Set text color to black
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/google_logo.png', // Path to the Google logo image
+                      height: 24, // Set the height of the logo
+                    ),
+                    SizedBox(width: 10), // Add some space between the logo and text
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: Colors.black, // Set text color to black
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
