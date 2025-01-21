@@ -40,20 +40,36 @@ class SignUpScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Welcome to My App',
+              'Today is Today',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
-            FloatingActionButton(
-              onPressed: () {
-                // Navigate to the HomeScreen after sign-up
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-              tooltip: 'Sign Up',
-              child: Text('Sign Up'),
+            SizedBox(
+              width: 200, // Set the width of the button
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to the HomeScreen after sign-up
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellow, // Set button color to yellow
+                  padding: EdgeInsets.symmetric(vertical: 16), // Add padding for height
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8), // Add rounded corners
+                  ),
+                ),
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.black, // Set text color to black
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
