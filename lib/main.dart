@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Today is Today',
+              'Welcome!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     SizedBox(width: 10), // Add some space between the logo and text
                     Text(
-                      'Sign Up',
+                      'Google',
                       style: TextStyle(
                         color: Colors.black, // Set text color to black
                         fontSize: 18,
